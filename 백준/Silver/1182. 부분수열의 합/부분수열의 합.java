@@ -27,16 +27,16 @@ public class Main {
         }
     }
 
-    static int dfs(int[] arr, int index, int sum, int check){
-        // 종료 조건: 현재 인덱스가 배열의 크기와 같을 때
+    static int dfs(int[] arr, int index, int sum, int s){
+
         if(index == arr.length) {
-            // 현재까지의 합이 target과 같으면 경우의 수 1 반환, 아니면 0 반환
-            return sum == check ? 1 : 0;
+            // 현재까지의 합이 부분수열의 합(답)과 같으면 경우의 수 1 반환, 아니면 0 반환
+            return sum == s ? 1 : 0;
         }
 
         // 현재 인덱스를 포함하는 경우와 포함하지 않는 경우에 대해 재귀 호출하여 결과를 합산
-        int in = dfs(arr, index+1, sum + arr[index], check); // 현재 인덱스를 포함하는 경우
-        int ex = dfs(arr, index+1, sum, check); // 현재 인덱스를 포함하지 않는 경우
+        int in = dfs(arr, index+1, sum + arr[index], s);
+        int ex = dfs(arr, index+1, sum, s);
 
         // 현재 인덱스를 포함하는 경우와 포함하지 않는 경우의 결과를 합산하여 반환
         return in + ex;
