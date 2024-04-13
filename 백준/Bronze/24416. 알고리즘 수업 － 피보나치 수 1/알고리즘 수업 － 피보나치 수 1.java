@@ -17,20 +17,18 @@ public class Main {
 
     private static int fibonacci(int n) {
         int[] f = new int[n+1];
-        f[0] = 1;
-        f[1] = 1;
-        // f[1] < -f[2] < -1;
-        for(int i = 2; i<n; i++){
+        f[1] = f[2] = 1;
+        for (int i = 3; i < n+1; i++) {
             countFibonacci++;
-            f[i] = f[i - 2] + f[i - 1];
+            f[i] = f[i - 1] + f[i - 2];
         }
-        return f[n-1];
+        return f[n];
     }
 
     private static int fib(int n) {
         if (n == 1 || n == 2){
             countFib++;
-            return 1;  // #코드1
+            return 1;
         }
         return (fib(n - 1) + fib(n - 2));
     }
