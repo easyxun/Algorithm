@@ -7,7 +7,9 @@ import java.util.StringTokenizer;
 public class Main {// No2212 : 센서
 
     public static void main(String[] args) throws IOException {
+        
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
         int N = Integer.parseInt(br.readLine());
         int K = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
@@ -36,8 +38,7 @@ public class Main {// No2212 : 센서
                 temp -= arr2[arr2.length - 1 - i];
             }
         }
-
-
+        
         System.out.println(temp);
 
     }
